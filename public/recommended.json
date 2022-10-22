@@ -1,0 +1,254 @@
+[
+  {
+    "id": "one-piece",
+    "title": "One Piece",
+    "episodes": "1028",
+    "image_url": "https://gogocdn.net/images/anime/One-piece.jpg",
+    "released": "1999"
+  },
+  {
+    "id": "tokyo-ghoul",
+    "title": "Tokyo Ghoul",
+    "episodes": "12",
+    "image_url": "https://gogocdn.net/images/summer/Tokyo Ghoul.jpg",
+    "released": "2014"
+  },
+  {
+    "id": "naruto",
+    "title": "Naruto",
+    "episodes": "220",
+    "image_url": "https://gogocdn.net/images/anime/N/naruto.jpg",
+    "released": "2002"
+  },
+  {
+    "id": "bleach",
+    "title": "Bleach",
+    "episodes": "366",
+    "image_url": "https://gogocdn.net/images/anime/B/bleach.jpg",
+    "released": "2012"
+  },
+  {
+    "id": "Kimetsu-no-Yaiba",
+    "title": "Kimetsu no Yaiba",
+    "episodes": "26",
+    "image_url": "https://gogocdn.net/cover/kimetsu-no-yaiba.png",
+    "released": "2019"
+  },
+  {
+    "id": "steinsgate",
+    "title": "Steins;Gate",
+    "episodes": "25",
+    "image_url": "https://gogocdn.net/images/anime/S/Steins-Gate.jpg",
+    "released": "2011"
+  },
+  {
+    "id": "shingeki-no-kyojin",
+    "title": "Shingeki no Kyojin",
+    "episodes": "25",
+    "image_url": "https://gogocdn.net/images/anime/Shingeki-no-Kyojin.jpg",
+    "released": "2013"
+  },
+  {
+    "id": "kiseijuu-sei-no-kakuritsu",
+    "title": "Kiseijuu: Sei no Kakuritsu",
+    "episodes": "24",
+    "image_url": "https://gogocdn.net/images/fall/Kiseijuu Sei no Kakuritsu.jpg",
+    "released": "2014"
+  },
+  {
+    "id": "dragon-ball-super",
+    "title": "Dragon Ball Super",
+    "episodes": "131",
+    "image_url": "https://gogocdn.net/images/upload/dragon_ball_s.jpg",
+    "released": "2015"
+  },
+  {
+    "id": "hunter-x-hunter-2011",
+    "title": "Hunter X Hunter 2011",
+    "episodes": "148",
+    "image_url": "https://gogocdn.net/images/anime/hunter-x-hunter-2011.jpg",
+    "released": "2011"
+  },
+  {
+    "id": "monster",
+    "title": "Monster",
+    "episodes": "74",
+    "image_url": "https://gogocdn.net/images/anime/M/monster.jpg",
+    "released": "2004"
+  },
+  {
+    "id": "mob-psycho-100",
+    "title": "Mob Psycho 100",
+    "episodes": "12",
+    "image_url": "https://gogocdn.net/cover/mob-psycho-100.jpg",
+    "released": "2016"
+  },
+  {
+    "id": "mob-psycho-100",
+    "title": "Mob Psycho 100",
+    "episodes": "12",
+    "image_url": "https://gogocdn.net/cover/mob-psycho-100.jpg",
+    "released": "2016"
+  },
+  {
+    "id": "vinland-saga",
+    "title": "Vinland Saga",
+    "episodes": "24",
+    "image_url": "https://gogocdn.net/cover/vinland-saga.png",
+    "released": "2019"
+  },
+  {
+    "id": "jujutsu-kaisen-tv",
+    "title": "Jujutsu Kaisen (TV)",
+    "episodes": "24",
+    "image_url": "https://gogocdn.net/cover/jujutsu-kaisen-tv.png",
+    "released": "2020"
+  },
+  {
+    "id": "made-in-abyss",
+    "title": "Made in Abyss",
+    "episodes": "13",
+    "image_url": "https://gogocdn.net/cover/made-in-abyss.png",
+    "released": "2017"
+  },
+  {
+    "id": "death-note",
+    "title": "Death Note",
+    "episodes": "37",
+    "image_url": "https://gogocdn.net/cover/death-note.png",
+    "released": "2006"
+  },
+  {
+    "id": "kuroko-no-baske",
+    "title": "Kuroko no Baske",
+    "episodes": "25",
+    "image_url": "https://gogocdn.net/images/anime/K/Kuroko-no-Basuke.jpg",
+    "released": "2012"
+  },
+  {
+    "id": "one-punch-man",
+    "title": "One Punch Man",
+    "episodes": "12",
+    "image_url": "https://gogocdn.net/images/upload/76049.jpg",
+    "released": "2015"
+  },
+  {
+    "id": "naruto-shippuden",
+    "title": "Naruto Shippuden",
+    "episodes": "500",
+    "image_url": "https://gogocdn.net/images/anime/naruto_shippuden.jpg",
+    "released": "2007"
+  },
+  {
+    "id": "dr-stone",
+    "title": "Dr. Stone",
+    "episodes": "24",
+    "image_url": "https://gogocdn.net/cover/dr-stone.png",
+    "released": "2019"
+  },
+  {
+    "id": "dororo",
+    "title": "Dororo",
+    "episodes": "24",
+    "image_url": "https://gogocdn.net/cover/dororo.png",
+    "released": "2019"
+  },
+  {
+    "id": "yakusoku-no-neverland",
+    "title": "Yakusoku no Neverland",
+    "episodes": "12",
+    "image_url": "https://gogocdn.net/cover/yakusoku-no-neverland.png",
+    "released": "2019"
+  },
+  {
+    "id": "boruto-naruto-next-generations",
+    "title": "Boruto: Naruto Next Generations",
+    "episodes": "261",
+    "image_url": "https://gogocdn.net/cover/boruto-naruto-next-generations.png",
+    "released": "2017"
+  },
+  {
+    "id": "spy-x-family",
+    "title": "Spy x Family",
+    "episodes": "12",
+    "image_url": "https://gogocdn.net/cover/spy-x-family.png",
+    "released": "2022"
+  },
+  {
+    "id": "youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-tv-2nd-season",
+    "title": "Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e (TV) 2nd Season",
+    "episodes": "6",
+    "image_url": "https://gogocdn.net/cover/youkoso-jitsuryoku-shijou-shugi-no-kyoushitsu-e-tv-2nd-season.png",
+    "released": "2022"
+  },
+  {
+    "id": "tokyo-revengers",
+    "title": "Tokyo Revengers",
+    "episodes": "24",
+    "image_url": "https://gogocdn.net/cover/tokyo-revengers.png",
+    "released": "2021"
+  },
+  {
+    "id": "tensei-shitara-slime-datta-ken",
+    "title": "Tensei shitara Slime Datta Ken",
+    "episodes": "24",
+    "image_url": "https://gogocdn.net/cover/tensei-shitara-slime-datta-ken.png",
+    "released": "2018"
+  },
+  {
+    "id": "horimiya",
+    "title": "Horimiya",
+    "episodes": "13",
+    "image_url": "https://gogocdn.net/cover/horimiya.png",
+    "released": "2021"
+  },
+  {
+    "id": "mushoku-tensei-isekai-ittara-honki-dasu",
+    "title": "Mushoku Tensei: Isekai Ittara Honki Dasu",
+    "episodes": "11",
+    "image_url": "https://gogocdn.net/cover/mushoku-tensei-isekai-ittara-honki-dasu.png",
+    "released": "2021"
+  },
+  {
+    "id": "enen-no-shouboutai",
+    "title": "Enen no Shouboutai",
+    "episodes": "24",
+    "image_url": "https://gogocdn.net/cover/enen-no-shouboutai.png",
+    "released": "2019"
+  },
+  {
+    "id": "boku-no-hero-academia",
+    "title": "Boku no Hero Academia",
+    "episodes": "13",
+    "image_url": "https://gogocdn.net/cover/boku-no-hero-academia.jpg",
+    "released": "2016"
+  },
+  {
+    "id": "black-clover-tv",
+    "title": "Black Clover (TV)",
+    "episodes": "170",
+    "image_url": "https://gogocdn.net/cover/black-clover-tv.png",
+    "released": "2017"
+  },
+  {
+    "id": "gleipnir",
+    "title": "Gleipnir",
+    "episodes": "13",
+    "image_url": "https://gogocdn.net/cover/gleipnir.png",
+    "released": "2020"
+  },
+  {
+    "id": "tate-no-yuusha-no-nariagari",
+    "title": "Tate no Yuusha no Nariagari",
+    "episodes": "25",
+    "image_url": "https://gogocdn.net/cover/tate-no-yuusha-no-nariagari.png",
+    "released": "2019"
+  },
+  {
+    "id": "the-god-of-high-school",
+    "title": "The God of High School\t",
+    "episodes": "13",
+    "image_url": "https://gogocdn.net/cover/the-god-of-high-school.png",
+    "released": "2020"
+  }
+]

@@ -1,0 +1,121 @@
+import {
+  AiFillHeart,
+  AiFillCalendar,
+  AiFillPlayCircle,
+  AiFillStar,
+  AiTwotoneThunderbolt,
+  AiTwotoneFire,
+  AiFillHome
+} from "react-icons/ai";
+import { FaEye, FaDonate,FaRandom } from "react-icons/fa";
+import { BiShowAlt, BiMoviePlay } from "react-icons/bi";
+import {RiMovieFill} from "react-icons/ri"
+
+export const Discover = [
+  {
+    index: 8,
+    name: "Home",
+    link: "/",
+    icon: AiFillHome,
+  },
+  {
+    index: 1,
+    name: "Recently Added",
+    link: "/recentlyadded/1",
+    icon: AiFillCalendar,
+  },
+  {
+    index: 0,
+    name: "Popular",
+    link: "/popular/1",
+    icon: AiTwotoneFire,
+  },
+  {
+    index: 2,
+    name: "New Season",
+    link: "/newseason/1",
+    icon: AiTwotoneThunderbolt,
+  },
+  {
+    index: 3,
+    name: "Movies",
+    link: "/movies/1",
+    icon: RiMovieFill,
+  },
+  {
+    index: 4,
+    name: "Recently Watched",
+    link: "/recentlyWatched/",
+    icon: BiShowAlt,
+  },
+  {
+    index: 7,
+    name: "Recommended",
+    link: "/recommended/",
+    icon: AiFillStar,
+  },
+  {
+    index: 5,
+    name: "My List",
+    link: "/myList",
+    icon: AiFillHeart,
+  },
+  {
+    index: 9,
+    name: "Random",
+    link: "/surprise",
+    icon: FaRandom,
+  },
+];
+
+const genrelist = [
+  "Action",
+  "Adventure",
+  "Cars",
+  "Comedy",
+  "Dementia",
+  "Demons",
+  "Drama",
+  "Dub",
+  "Ecchi",
+  "Fantasy",
+  "Game",
+  "Harem",
+  "Historical",
+  "Horror",
+  "Josei",
+  "Kids",
+  "Magic",
+  "Martial Arts",
+  "Mecha",
+  "Military",
+  "Music",
+  "Mystery",
+  "Parody",
+  "Police",
+  "Psychological",
+  "Romance",
+  "Samurai",
+  "School",
+  "Sci-Fi",
+  "Seinen",
+  "Shoujo",
+  "Shoujo Ai",
+  "Shounen",
+  "Shounen Ai",
+  "Slice of Life",
+  "Space",
+  "Sports",
+  "Super Power",
+  "Supernatural",
+  "Thriller",
+  "Vampire",
+  "Yaoi",
+  "Yuri",
+];
+export var Genre = genrelist.map((name, index) => ({
+  index: index,
+  name: name,
+  link: `/genre/${name.split(" ").join("-")}/1`,
+  icon: AiFillPlayCircle,
+}));

@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgba(26, 25, 25, 0.287); 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(230, 216, 216, 0.173); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+
+}
+div {
+  transition: background 500ms;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.plyr--full-ui input{
+  color:red !important;
+}
+
+lightshadow {
+  border-radius: 50px;
+  background: #55b9f3;
+  box-shadow: 20px 20px 60px #489dcf, -20px -20px 60px #62d5ff;
+}
+
+.header{
+  background : url('/bg-anime1.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  
+}
+
+.swiper-wrapper {
+padding: 0.8rem 0.5rem;
+padding-bottom: 1.2rem;
+
+}
+
+
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  @apply text-white  p-1   hidden md:block
+
+} 
+
+
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size:30px !important;
+  color:#1648ff !important;
+  font-weight:900 !important;
+}
+
+
+.swiper-button-next, .swiper-button-prev{
+ margin:0 !important;
+ top : 41% !important;
+}
+
+footer{
+  /* background: linear-gradient(rgba(0, 0, 0, 0.945),rgba(0, 0, 0, 0.871)) , 
+	    url(https://mir-s3-cdn-cf.behance.net/b409bf0f9ef1d45c29d0f9984c53d5b4/b1f5a6c1-5109-4fa3-8f4b-4b938bd455d9_rwc_0x0x1920x300x1920.jpg?h=10c73331502cb711e6b54e3b05ed8fb1)no-repeat;
+      background-size:cover;
+      background-position:top; */
+
+}
+
+
+.swiper-wrapper {
+  position: unset !important;
+}
+
+.swiper {
+  position: unset !important;
+}
+
+
+.im:before {
+  content: '';
+  
+  position: absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+        
+  opacity: 0.6;
+        
+  background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-dog-royalty-free-image-505534037-1565105327.jpg");
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header-swiper .swiper-wrapper {
+padding: 0;
+}
+
+
+footer::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-image: url(https://wallpaperaccess.com/full/2461334.jpg);
+  background-size: cover;
+  background-position: 36% 18%;
+  filter: brightness(0.18);
+}
+
+.swiper-button-disabled {
+  opacity:0.1;
+  cursor:default
+}
+
+  /* #card:hover{
+    filter:brightness(0.5)
+  } */
+
+#card::after {
+  content: "";
+  position: absolute;
+  top: auto;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  opacity: 0;
+  background: #16161659;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 
+#card::before{
+  content: "";
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    margin-left: -30px;
+    border-radius: 50%;
+    background: linear-gradient(243deg,rgb(255 118 0) 0,rgb(255 183 21) 100%)!important;
+    opacity: 0;
+    z-index: 2;
+} */
+
+#card:hover:after {
+  opacity:1;
+}
+
+.Toastify__toast {
+  background: #111 !important;
+}
+
+#title {
+  font-family: 'Roboto', sans-serif;
+
+}

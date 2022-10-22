@@ -1,0 +1,18 @@
+{
+    "theme_color": "#1a1c20",
+    "background_color": "#1a1c20",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Otto Anime",
+    "description": "Premium anime streaming app",
+    "short_name": "Animex",
+    "icons": [
+        {
+            "src": "/kan.jpg",
+            "sizes": "32x32",
+            "type": "image/png"
+        }
+    
+    ]
+}
