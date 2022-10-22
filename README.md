@@ -46,4 +46,4 @@ Consider showing some support with a cup of coffee.
 <br/>
 <!-- LICENSE -->
 
-Copyright © 2021 Otto Programmer
+Copyright © 2022 Otto Programmer
