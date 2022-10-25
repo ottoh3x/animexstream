@@ -96,7 +96,7 @@ const Sidebar = ({ visit }) => {
           <FaDiscord size={36.5}
           onClick={() => alert("https://discord.gg/uEAKwRrFpn")}
            className={` cursor-pointer ${theme.text.selected} hidden md:block hover:scale-105    p-1  `} />
-          }
+          
            
           
           </div>
