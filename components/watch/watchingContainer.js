@@ -48,6 +48,7 @@ const WatchingContainer = ({
   iframe,
   relatedLoading,
   maLoading,
+  epIds,
 }) => {
   const Myref = useRef(null);
   const { theme, resumeId, watchList, myList } = useSelector((state) => state);
@@ -98,7 +99,7 @@ const WatchingContainer = ({
     FetchingOnGoing();
     const ifry = setIfr(
       `https://animixplay.to/api/live` +
-        window.btoa(data.epid + "LTXs3GrU8we9O" + window.btoa(data.epid)),
+        window.btoa(data.epid + "LTXs3GrU8we9O" + window.btoa(data.epid))
     );
     setDataIfr(data.epid);
     fetchEpisodesList();
@@ -109,13 +110,13 @@ const WatchingContainer = ({
         title: title,
         episode: slug[1],
         time: Date.now(),
-      }),
+      })
     );
     dispatch(
       resumeAction({
         data: slug,
         time: 0,
-      }),
+      })
     );
     fetchSchedule();
 
@@ -131,7 +132,7 @@ const WatchingContainer = ({
       setClick(false);
       dispatch(removeFromMyList(mal?.anime_id));
       toast.info(
-        <Msg title={mal?.title} message="Was Removed From Your List" />,
+        <Msg title={mal?.title} message="Was Removed From Your List" />
       );
     } else {
       dispatch(
@@ -140,7 +141,7 @@ const WatchingContainer = ({
           image_url: data.image_url || mal?.image_url,
           title: data?.title || mal?.title,
           released: data.year || mal?.aired?.prop?.from?.year,
-        }),
+        })
       );
       setClick(true);
       toast.info(<Msg title={mal?.title} message="Was Added To Your List" />);
@@ -149,7 +150,7 @@ const WatchingContainer = ({
 
   const fetchEpisodesList = async () => {
     let res = await axios.get(
-      `https://ottogo.vercel.app/api/details/${slug[0]}/`,
+      `https://ottogo.vercel.app/api/details/${slug[0]}/`
     );
     setAnimeData(res?.data);
     setImage(res.data.image_url);
@@ -159,7 +160,7 @@ const WatchingContainer = ({
 
   const fetchRec = async () => {
     let req = await axios.get(
-      `https://api.jikan.moe/v4/anime/${mal?.mal_id}/recommendations`,
+      `https://api.jikan.moe/v4/anime/${mal?.mal_id}/recommendations`
     );
     let res = req.data;
     setRec(res.data.slice(0, 15));
@@ -168,7 +169,7 @@ const WatchingContainer = ({
   const FetchingOnGoing = async (e) => {
     let d = await axios.get(
       `  https://ajax.gogo-load.com/ajax/page-recent-release-ongoing.html?page=1
-      `,
+      `
     );
     d = d.data;
     const myList = [];
@@ -189,19 +190,15 @@ const WatchingContainer = ({
       myList.push(result);
     });
     setOnGoingPopular(myList);
-    console.log(myList);
   };
 
   const fetchSchedule = async () => {
     let res = await axios.get(
-      `https://ottogo.vercel.app/api/schedule/${slug[0]}/`,
+      `https://ottogo.vercel.app/api/schedule/${slug[0]}/`
     );
 
     setSchedule(res.data?.time || "");
   };
-  console.log(val);
-  console.log(myArray.length);
-  console.log(myArray);
 
   return (
     <div className="flex justify-between 2xl:w-[91%] px-2 mx-auto">
@@ -336,6 +333,7 @@ const WatchingContainer = ({
             heading={"Ep"}
             total={ep}
             episodeid={data.epid}
+            epId={epIds[slug[1] - 1]}
             light={() => setLight(!light)}
             reload={() => (Myref.current.src += "")}
             change={() =>
@@ -357,108 +355,113 @@ const WatchingContainer = ({
         </div>
         <hr className="h-[1px] my-3 bg-gray-600 w-full border-none"></hr>
         {epLoading ? (
-         <div className="w-full h-full bg-black  flex justify-center items-center ">
-
-
-         <Triangle 
-      height="110" 
-      width="110" 
-      radius="9"
-      color="#1C25B2" 
-      ariaLabel="triangle-loading"
-      wrapperStyle={{}}
-      
-      visible={true}
-       /> </div>
-      ):(
-        <div className=" rounded-md flex lg:flex-row gap-1 w-full p-2 ">
-          <div className="w-full max-w-[200px] mx-auto">
-            <img
-              src={mal?.image_url}
-              className="w-[140px] h-[200px] mx-auto text-center lg:w-full lg:h-[300px] rounded-sm object-cover"
-            />
-            {/* <div className="p-1 text-gray-400">
+          <div className="w-full h-full bg-black  flex justify-center items-center ">
+            <Triangle
+              height="110"
+              width="110"
+              radius="9"
+              color="#1C25B2"
+              ariaLabel="triangle-loading"
+              wrapperStyle={{}}
+              visible={true}
+            />{" "}
+          </div>
+        ) : (
+          <div className=" rounded-md flex lg:flex-row gap-1 w-full p-2 ">
+            <div className="w-full max-w-[200px] mx-auto">
+              <img
+                src={mal?.image_url}
+                className="w-[140px] h-[200px] mx-auto text-center lg:w-full lg:h-[300px] rounded-sm object-cover"
+              />
+              {/* <div className="p-1 text-gray-400">
             <div className="flex gap-1 items-center">
             <span><AiFillStar color="orange"/>
             </span>{mal?.score}</div>
             </div> */}
-          </div>
-          <div className="p-1 lg:py-2 lg:px-3 w-full  text-left relative">
-            <span className="absolute top-0 right-0 ">
-              {click ? (
-                <FaHeart onClick={handleClick} size={30} color="red" />
-              ) : (
-                <FaHeart onClick={handleClick} size={30} color="#BDBDBD" />
-              )}
-            </span>
+            </div>
+            <div className="p-1 lg:py-2 lg:px-3 w-full  text-left relative">
+              <span className="absolute top-0 right-0 ">
+                {click ? (
+                  <FaHeart onClick={handleClick} size={30} color="red" />
+                ) : (
+                  <FaHeart onClick={handleClick} size={30} color="#BDBDBD" />
+                )}
+              </span>
 
-            <div className="grid  md:grid-cols-2">
-              <div className="flex flex-col py-1">
-                <span className=" font-bold text-blue-600">Rank</span>
-                <span className={`${theme.text.notselected} capitalize`}>
-                  <span className="text-gray-400">#</span>
-                  {mal?.rank}
-                </span>
-              </div>
-              <div className="flex flex-col pb-1">
-                <span className=" font-bold text-blue-600">Score</span>
-                <span className={`${theme.text.notselected} capitalize`}>
-                  {mal?.score}
-                </span>
-              </div>
-              <div className="flex flex-col py-1">
-                <span className=" font-bold text-blue-600">Duration</span>
-                <span className={`${theme.text.notselected} capitalize`}>
-                  {mal?.duration}
-                </span>
-              </div>
-
-              <div className="flex flex-col py-1">
-                <span className=" font-bold text-blue-600">Status</span>
-                <span className={`${theme.text.notselected} capitalize`}>
-                  {mal?.status}
-                </span>
-              </div>
-              <div className="flex flex-col py-1">
-                <span className=" font-bold text-blue-600">Title Japanese</span>
-                <span className={`${theme.text.notselected} capitalize`}>
-                  <span className="text-gray-400"></span>
-                  {mal?.title_japanese}
-                </span>
-              </div>
-              {mal?.airing === "true" && (
-                <div className="flex flex-col py-1  ">
-                  <span className="font-bold text-blue-600 ">Broadcast:</span>
-                  <span className={`${theme.text.notselected} capitalize px-1`}>
-                    {mal?.broadcast || "?"}
+              <div className="grid  md:grid-cols-2">
+                <div className="flex flex-col py-1">
+                  <span className=" font-bold text-blue-600">Rank</span>
+                  <span className={`${theme.text.notselected} capitalize`}>
+                    <span className="text-gray-400">#</span>
+                    {mal?.rank}
                   </span>
                 </div>
-              )}
-              <div className="flex flex-col py-1">
-                <span className=" font-bold text-blue-600">Release Date </span>
-                <span className={`${theme.text.notselected} capitalize`}>
-                  <span className="text-gray-400"></span>
-                  {mal?.aired?.string}
-                </span>
+                <div className="flex flex-col pb-1">
+                  <span className=" font-bold text-blue-600">Score</span>
+                  <span className={`${theme.text.notselected} capitalize`}>
+                    {mal?.score}
+                  </span>
+                </div>
+                <div className="flex flex-col py-1">
+                  <span className=" font-bold text-blue-600">Duration</span>
+                  <span className={`${theme.text.notselected} capitalize`}>
+                    {mal?.duration}
+                  </span>
+                </div>
+
+                <div className="flex flex-col py-1">
+                  <span className=" font-bold text-blue-600">Status</span>
+                  <span className={`${theme.text.notselected} capitalize`}>
+                    {mal?.status}
+                  </span>
+                </div>
+                <div className="flex flex-col py-1">
+                  <span className=" font-bold text-blue-600">
+                    Title Japanese
+                  </span>
+                  <span className={`${theme.text.notselected} capitalize`}>
+                    <span className="text-gray-400"></span>
+                    {mal?.title_japanese}
+                  </span>
+                </div>
+                {mal?.airing === "true" && (
+                  <div className="flex flex-col py-1  ">
+                    <span className="font-bold text-blue-600 ">Broadcast:</span>
+                    <span
+                      className={`${theme.text.notselected} capitalize px-1`}
+                    >
+                      {mal?.broadcast || "?"}
+                    </span>
+                  </div>
+                )}
+                <div className="flex flex-col py-1">
+                  <span className=" font-bold text-blue-600">
+                    Release Date{" "}
+                  </span>
+                  <span className={`${theme.text.notselected} capitalize`}>
+                    <span className="text-gray-400"></span>
+                    {mal?.aired?.string}
+                  </span>
+                </div>
+                <div className="flex flex-col py-1">
+                  <span className=" font-bold text-blue-600">Rating </span>
+                  <span className={`${theme.text.notselected} capitalize`}>
+                    <span className="text-gray-400"></span>
+                    {mal?.rating}
+                  </span>
+                </div>
+                <div className="flex flex-col py-1">
+                  <span className=" font-bold text-blue-600">Source </span>
+                  <span className={`${theme.text.notselected} capitalize`}>
+                    <span className="text-gray-400"></span>
+                    {mal?.source}
+                  </span>
+                </div>
               </div>
-              <div className="flex flex-col py-1">
-                <span className=" font-bold text-blue-600">Rating </span>
-                <span className={`${theme.text.notselected} capitalize`}>
-                  <span className="text-gray-400"></span>
-                  {mal?.rating}
-                </span>
-              </div>
-              <div className="flex flex-col py-1">
-                <span className=" font-bold text-blue-600">Source </span>
-                <span className={`${theme.text.notselected} capitalize`}>
-                  <span className="text-gray-400"></span>
-                  {mal?.source}
-                </span>
-              </div>
+              {/* <p className={`p-0 lg:p-2 ${theme.text.notselected} font-light`}>{mal?.synopsis}</p> */}
             </div>
-            {/* <p className={`p-0 lg:p-2 ${theme.text.notselected} font-light`}>{mal?.synopsis}</p> */}
           </div>
-        </div> )}
+        )}
         <div className="mx-2 p-8 mt-2 bg-[#0c0b0b] w-full">
           <div className="flex flex-col gap-3">
             <div className="flex gap-2 flex-wrap justify-center">
@@ -478,7 +481,7 @@ const WatchingContainer = ({
               {mal?.synopsis}
             </p>
           </div>
-        </div> 
+        </div>
 
         <div className="w-full  mx-auto mt-4">
           <HomeContainer
@@ -509,7 +512,6 @@ const WatchingContainer = ({
                   <img
                     className="h-[4rem] w-full max-w-[3.5rem] rounded-lg object-cover"
                     src={anime.entry.images.jpg.image_url}
-                    
                   />
                   <div className="px-2 flex flex-col">
                     <h1 className="text-gray-200 cursor-pointer hover:text-blue-300">
@@ -548,17 +550,23 @@ const WatchingContainer = ({
                     {anime.title}
                   </h1>
                 </Link>
-                
-                  <p onClick={() => router.push(`/watching/${anime.url}/${anime.latest.replace(
-                    "Episode ",
-                    "",
-                  )}`)} className="flex gap-1 text-gray-300 items-end h-full">
-                    Latest:{" "}
-                    <span className="text-gray-500 cursor-pointer hover:text-blue-500">
-                      {anime.latest}
-                    </span>
-                  </p>
-               
+
+                <p
+                  onClick={() =>
+                    router.push(
+                      `/watching/${anime.url}/${anime.latest.replace(
+                        "Episode ",
+                        ""
+                      )}`
+                    )
+                  }
+                  className="flex gap-1 text-gray-300 items-end h-full"
+                >
+                  Latest:{" "}
+                  <span className="text-gray-500 cursor-pointer hover:text-blue-500">
+                    {anime.latest}
+                  </span>
+                </p>
               </div>
             </div>
           ))}
