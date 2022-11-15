@@ -1,21 +1,21 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Layout from "../../components/Layout";
-import dynamic from "next/dynamic";
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import Layout from '../../components/Layout';
+import dynamic from 'next/dynamic';
 const WatchingContainer = dynamic(() =>
-  import("../../components/watch/watchingContainer")
+  import('../../components/watch/watchingContainer')
 );
-import { asyncDataAction } from "../../redux/actions/asyncDataAction";
-const axios = require("axios");
+import { asyncDataAction } from '../../redux/actions/asyncDataAction';
+const axios = require('axios');
 
-import { URL } from "../../utils/URLS";
+import { URL } from '../../utils/URLS';
 const Recently = () => {
   const [data, setData] = useState([]);
   const [anime, setAnime] = useState([]);
-  const [frame, setFrame] = useState("");
-  const [epId, setEpId] = useState("");
-  const [iframe, setIframe] = useState("");
+  const [frame, setFrame] = useState('');
+  const [epId, setEpId] = useState('');
+  const [iframe, setIframe] = useState('');
   const [eps, setEps] = useState([]);
   // const { data } = useSelector((state) => state);
   const router = useRouter();
@@ -43,16 +43,16 @@ const Recently = () => {
     if (eps?.length > 0) {
       let code = eps
         ?.filter((t) => t.epNum == slug?.[1])[0]
-        .link?.split("&")[0]
-        .split("id=")[1];
+        .link?.split('&')[0]
+        .split('id=')[1];
       setIframe(
         `https://animixplay.to/api/live` +
-          window.btoa(code + "LTXs3GrU8we9O" + window.btoa(code))
+          window.btoa(code + 'LTXs3GrU8we9O' + window.btoa(code))
       );
     }
   }, [slug]);
   const split_title = (t) => {
-    let s = t.split("-");
+    let s = t.split('-');
     if (s.length >= 2) {
       let title = `${s[0]} ${s[1]}`;
       return title;
@@ -72,26 +72,26 @@ const Recently = () => {
 
   const fetchEpisode = async () => {
     let url = `https://ottodbapi.vercel.app/animix/episodes/${slug[0]}`;
-    let WatchingURL = URL.EPLINK + slug[0] + "/episode/" + slug[1];
+    let WatchingURL = URL.EPLINK + slug[0] + '/episode/' + slug[1];
 
     let res = await axios.get(url);
     let epIds = res.data.episodes.map((t) => {
-      return t.link.split("&")[0].split("id=")[1];
+      return t.link.split('&')[0].split('id=')[1];
     });
 
     // let epIds = res.data.episodes.map((t) => t.epid);
 
     let epCode = res.data.episodes
       .filter((t) => t.epNum == slug?.[1])[0]
-      .link.split("&")[0]
-      .split("id=")[1];
+      .link.split('&')[0]
+      .split('id=')[1];
 
     setEps(res.data.episodes);
     setData(res.data);
     setEpId(epIds);
     setIframe(
       `https://animixplay.to/api/live` +
-        window.btoa(epCode + "LTXs3GrU8we9O" + window.btoa(epCode))
+        window.btoa(epCode + 'LTXs3GrU8we9O' + window.btoa(epCode))
     );
     setLoading(false);
   };
@@ -104,7 +104,7 @@ const Recently = () => {
   };
 
   return (
-    <Layout title={"Watching " + slug?.[0]}>
+    <Layout title={'Watching ' + slug?.[0]}>
       {slug && (
         <WatchingContainer
           relatedLoading={relatedLoading}

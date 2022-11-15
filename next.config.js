@@ -3,7 +3,7 @@
 module.exports = {
   reactStrictMode: false,
   images: {
-    domains: ["gogocdn.net", "cdn.myanimelist.net"],
+    domains: ['gogocdn.net', 'cdn.myanimelist.net']
   },
-  output: "standalone",
+  output: 'standalone'
 };

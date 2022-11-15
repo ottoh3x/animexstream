@@ -1,22 +1,22 @@
-import Card from "./Card";
-import { useDispatch, useSelector } from "react-redux";
-import PagiNation from "../PagiNation";
-import Loader from "../Loader/Loader";
-import { clearMyWatchList } from "../../redux/actions/recentlyWatchedAction";
-import { AiFillDelete } from "react-icons/ai";
-import dynamic from "next/dynamic";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { AiFillStar } from "react-icons/ai";
-import Link from "next/link";
-import { Triangle } from "react-loader-spinner";
-import { AnimatePresence } from "framer-motion";
-import CardModal from "./CardModal";
+import Card from './Card';
+import { useDispatch, useSelector } from 'react-redux';
+import PagiNation from '../PagiNation';
+import Loader from '../Loader/Loader';
+import { clearMyWatchList } from '../../redux/actions/recentlyWatchedAction';
+import { AiFillDelete } from 'react-icons/ai';
+import dynamic from 'next/dynamic';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { AiFillStar } from 'react-icons/ai';
+import Link from 'next/link';
+import { Triangle } from 'react-loader-spinner';
+import { AnimatePresence } from 'framer-motion';
+import CardModal from './CardModal';
 
 function Container({ Data = [], heading, page, Icon, len, loading }) {
   const { theme, watchList } = useSelector((state) => state);
   const [selected, setSelected] = useState(false);
-  const [url, setUrl] = useState("");
+  const [url, setUrl] = useState('');
   const [top, setTop] = useState([]);
   console.log(Data);
   const dispatch = useDispatch();
@@ -29,8 +29,8 @@ function Container({ Data = [], heading, page, Icon, len, loading }) {
   }, []);
 
   const handleSelected = () => {
-    setSelected(true)
-  }
+    setSelected(true);
+  };
 
   const fetchTop = async () => {
     let url = `https://api.jikan.moe/v4/top/anime?filter=airing&limit=15`;
@@ -51,7 +51,7 @@ function Container({ Data = [], heading, page, Icon, len, loading }) {
             ariaLabel="triangle-loading"
             wrapperStyle={{}}
             visible={true}
-          />{" "}
+          />{' '}
         </div>
       ) : (
         <div>
@@ -76,20 +76,20 @@ function Container({ Data = [], heading, page, Icon, len, loading }) {
             <span
               className={`text-blue-500  capitalize px-16 font-thin text-xl`}
             >
-              {heading == "Showing Results for"
+              {heading == 'Showing Results for'
                 ? page?.[0]
-                : heading == "Genres"
+                : heading == 'Genres'
                 ? page?.[0]
-                : "Anime"}
+                : 'Anime'}
             </span>
-            {heading == "Recently Watched" ? (
+            {heading == 'Recently Watched' ? (
               <div className="absolute cursor-pointer px-4 top-0 right-0">
                 <div
                   className={`${theme.button.background} ${theme.button.text} h-10 w-10  rounded-full flex  p-2.5 shadow-2xl relative right-0`}
                   id="deletewatchlist"
                   onClick={clearWatch}
                 >
-                  {" "}
+                  {' '}
                   <AiFillDelete size={20} />
                 </div>
               </div>
@@ -106,7 +106,7 @@ function Container({ Data = [], heading, page, Icon, len, loading }) {
               </div>
             ))}
           </div>
-          {page ? <PagiNation page={page} heading={"Page"} len={len} /> : null}
+          {page ? <PagiNation page={page} heading={'Page'} len={len} /> : null}
         </div>
       )}
       <div className="hidden lg:block w-full max-w-[24%] mt-[2rem] mr-2 ">
@@ -118,7 +118,7 @@ function Container({ Data = [], heading, page, Icon, len, loading }) {
         {top.map((anime, i) => (
           <Link key={i} href={`/details/${anime.mal_id}`}>
             <div
-              style={{ filter: "drop-shadow(2px 4px 6px black)" }}
+              style={{ filter: 'drop-shadow(2px 4px 6px black)' }}
               className="flex my-1 drop-shadow-2xl p-1 bg-[#141313]"
             >
               <img
@@ -133,9 +133,9 @@ function Container({ Data = [], heading, page, Icon, len, loading }) {
                 <p className="text-gray-500 text-sm flex items-center gap-1">
                   <span className="mb-[2px]">
                     <AiFillStar color="#ffd530e8" />
-                  </span>{" "}
-                  {anime.score}{" "}
-                  <span className="ml-2 text-gray-500">{anime.year}</span>{" "}
+                  </span>{' '}
+                  {anime.score}{' '}
+                  <span className="ml-2 text-gray-500">{anime.year}</span>{' '}
                 </p>
                 <p className="flex gap-1 items-end h-full">
                   {anime.genres.map((genre, i) => (
@@ -170,7 +170,7 @@ function Container({ Data = [], heading, page, Icon, len, loading }) {
         ariaLabel="triangle-loading"
         wrapperStyle={{}}
         visible={true}
-      />{" "}
+      />{' '}
     </div>
   );
 }

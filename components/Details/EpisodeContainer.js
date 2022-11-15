@@ -1,12 +1,12 @@
-import { useSelector } from "react-redux";
-import Link from "next/link";
-import styled from "styled-components";
+import { useSelector } from 'react-redux';
+import Link from 'next/link';
+import styled from 'styled-components';
 
 const EpButton = styled.div`
   border: 2px solid ${({ detailsButton }) => detailsButton.border};
   color: ${({ detailsButton }) => detailsButton.text};
   background: ${({ detailsButton }) => detailsButton.background};
-  &:hover   {
+  &:hover {
     border: 2px solid ${({ detailsButton }) => detailsButton.hover.border};
     color: ${({ detailsButton }) => detailsButton.hover.text};
     background: ${({ detailsButton }) => detailsButton.hover.background};
@@ -27,8 +27,8 @@ const EpisodeContainer = ({ title, id, number, image }) => {
         className={`${theme.card.text} flex flex-col font-bold z-[1] text-3xl py-5`}
       >
         <span>{title}</span>
-        <span className={"text-blue-500 text-lg"}>
-          {number != 0 ? " 1 -" + " " + number: "Coming Soon"}
+        <span className={'text-blue-500 text-lg'}>
+          {number != 0 ? ' 1 -' + ' ' + number : 'Coming Soon'}
         </span>
       </span>
       <div className="flex m-w-[65rem] flex-wrap justify-center lg:place-content-start w-full max-h-[450px] overflow-y-scroll z-[1] gap-[1rem]">
@@ -49,7 +49,7 @@ const EpisodeContainer = ({ title, id, number, image }) => {
                   />
                 </div> */}
                 <span className="w-2/3 flex justify-center items-center text-center h-full ">
-                  <span className={"font-semibold"}>{" " +index}</span>
+                  <span className={'font-semibold'}>{' ' + index}</span>
                 </span>
               </EpButton>
             </Link>

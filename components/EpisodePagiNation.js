@@ -1,13 +1,13 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { BiRightArrowAlt, BiLeftArrowAlt } from "react-icons/bi";
-import { useSelector } from "react-redux";
-import styled from "styled-components";
-import { FaDownload, FaBackward, FaForward, FaLightbulb } from "react-icons/fa";
-import { IoPlayForward } from "react-icons/io";
-import { useEffect, useRef } from "react";
-import { FiRefreshCw } from "react-icons/fi";
-import { HiSwitchHorizontal } from "react-icons/hi";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { BiRightArrowAlt, BiLeftArrowAlt } from 'react-icons/bi';
+import { useSelector } from 'react-redux';
+import styled from 'styled-components';
+import { FaDownload, FaBackward, FaForward, FaLightbulb } from 'react-icons/fa';
+import { IoPlayForward } from 'react-icons/io';
+import { useEffect, useRef } from 'react';
+import { FiRefreshCw } from 'react-icons/fi';
+import { HiSwitchHorizontal } from 'react-icons/hi';
 
 const PB = styled.span`
   &:hover {
@@ -36,16 +36,16 @@ const EpisodePagiNation = ({
   reload,
   change,
   light,
-  epId,
+  epId
 }) => {
   const { theme } = useSelector((state) => state);
   const ref = useRef();
   const router = useRouter();
   const pathList = router.asPath;
-  const path = pathList?.split("/");
+  const path = pathList?.split('/');
   const page = parseInt(path?.[path?.length - 1]);
-  var nxt = "";
-  var prev = "";
+  var nxt = '';
+  var prev = '';
 
   if (path) {
     const nextPage = page + 1;
@@ -54,14 +54,14 @@ const EpisodePagiNation = ({
       nxt =
         page == total
           ? null
-          : (path[path.length - 1] = nextPage) && path.join("/");
+          : (path[path.length - 1] = nextPage) && path.join('/');
       prev =
         page === 1
           ? null
-          : (path[path.length - 1] = prevPage) && path.join("/");
+          : (path[path.length - 1] = prevPage) && path.join('/');
     } else {
-      nxt = (path[path.length - 1] = nextPage) && path.join("/");
-      prev = (path[path.length - 1] = prevPage) && path.join("/");
+      nxt = (path[path.length - 1] = nextPage) && path.join('/');
+      prev = (path[path.length - 1] = prevPage) && path.join('/');
     }
   }
   return (
@@ -116,7 +116,7 @@ const EpisodePagiNation = ({
       </div>
 
       {page === 1 ? null : (
-        <PageButton style={""} href={prev} pre={true}>
+        <PageButton style={''} href={prev} pre={true}>
           <FaBackward size={20} className=" hover:text-blue-600" />
           <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] text-gray-200 px-[12px] py-[2px] absolute top-[-25px]  rounded-md">
             Prev
@@ -124,7 +124,7 @@ const EpisodePagiNation = ({
         </PageButton>
       )}
       {page != total ? (
-        <PageButton style={""} href={nxt} pre={false}>
+        <PageButton style={''} href={nxt} pre={false}>
           <FaForward size={20} className=" hover:text-blue-600" />
           <span className="hidden group-hover:lg:block  bg-[#1e1b1bc7] text-gray-200 px-[12px] py-[2px] absolute top-[-25px]  rounded-md">
             Next

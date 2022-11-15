@@ -1,11 +1,10 @@
-import Layout from "../../components/Layout";
-import Container from "../../components/card/Container";
-import { useEffect, useState } from "react";
-import cheerio from "cheerio";
-const axios = require("axios");
-import { useRouter } from "next/router";
-import { AiFillPlayCircle } from "react-icons/ai";
-
+import Layout from '../../components/Layout';
+import Container from '../../components/card/Container';
+import { useEffect, useState } from 'react';
+import cheerio from 'cheerio';
+const axios = require('axios');
+import { useRouter } from 'next/router';
+import { AiFillPlayCircle } from 'react-icons/ai';
 
 // export async function getServerSideProps(context) {
 //   let {pages} = context.params
@@ -25,7 +24,7 @@ import { AiFillPlayCircle } from "react-icons/ai";
 
 //     result = { title, url, image_url, episode };
 //     myList.push(result);
-    
+
 //   });
 
 //   return {
@@ -36,11 +35,10 @@ import { AiFillPlayCircle } from "react-icons/ai";
 // }
 
 function Latest() {
-  const [content,setContent] = useState([])
-  
+  const [content, setContent] = useState([]);
 
   const {
-    query: { pages },
+    query: { pages }
   } = useRouter();
   useEffect(() => {
     Fetching();
@@ -54,26 +52,29 @@ function Latest() {
     // console.log(d);
     const myList = [];
     var $ = cheerio.load(d);
-    $(".items li").each(function (index, element) {
+    $('.items li').each(function (index, element) {
       let result = {};
-      let id = $(this).children("div").children("a").attr("href").split("-episode")[0];
-      let title = $(this).children("div").children("a").attr("title");
-      let image_url = $(this).find("img").attr("src");
-      let episode = $(this).children(".episode").text();
+      let id = $(this)
+        .children('div')
+        .children('a')
+        .attr('href')
+        .split('-episode')[0];
+      let title = $(this).children('div').children('a').attr('title');
+      let image_url = $(this).find('img').attr('src');
+      let episode = $(this).children('.episode').text();
 
       result = { title, id, image_url, episode };
       myList.push(result);
-      
     });
     setContent(myList);
   };
   return (
-    <Layout title={"Popular " + pages?.[0]}>
+    <Layout title={'Popular ' + pages?.[0]}>
       <Container
         Data={content}
         page={pages}
         Icon={AiFillPlayCircle}
-        heading={"Recently Watched"}
+        heading={'Recently Watched'}
         len={content.length}
       />
     </Layout>
