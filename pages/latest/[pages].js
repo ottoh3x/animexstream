@@ -49,7 +49,6 @@ function Latest() {
       `https://ajax.gogo-load.com/ajax/page-recent-release.html?page=${pages}&type=1`
     );
     d = d.data;
-    // console.log(d);
     const myList = [];
     var $ = cheerio.load(d);
     $('.items li').each(function (index, element) {

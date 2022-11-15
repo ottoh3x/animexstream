@@ -40,7 +40,6 @@ const RecentlyWatched = () => {
   const { watchList } = useSelector((state) => state);
   const sortedList = watchList.sort((a, b) => b.time - a.time);
 
-  console.log(watchList);
   return (
     <Layout title={'My List'}>
       {watchList.length > 0 ? (

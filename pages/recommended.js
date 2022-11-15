@@ -16,8 +16,6 @@ function Recommended() {
   }
 
   const arr = data;
-  console.log(getMultipleRandom(arr, 10));
-  console.log(getMultipleRandom(arr, 10));
 
   const fetchRecommended = async () => {
     let req = await fetch('/recommended.json');

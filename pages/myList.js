@@ -55,7 +55,6 @@ const MyList = () => {
   const { myList } = useSelector((state) => state);
   const { data, error } = useSWR('popular', fetcher);
 
-  console.log(data);
   return (
     <Layout title={'My List'}>
       {myList.length > 0 ? (

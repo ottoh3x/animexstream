@@ -18,7 +18,6 @@ function Container({ Data = [], heading, page, Icon, len, loading }) {
   const [selected, setSelected] = useState(false);
   const [url, setUrl] = useState('');
   const [top, setTop] = useState([]);
-  console.log(Data);
   const dispatch = useDispatch();
   const clearWatch = () => {
     dispatch(clearMyWatchList());
@@ -36,7 +35,6 @@ function Container({ Data = [], heading, page, Icon, len, loading }) {
     let url = `https://api.jikan.moe/v4/top/anime?filter=airing&limit=15`;
     let req = await axios.get(url);
     let res = await req.data;
-    console.log(res);
     setTop(res.data);
   };
   return Data?.length > 0 ? (

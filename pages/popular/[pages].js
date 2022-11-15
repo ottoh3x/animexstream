@@ -29,8 +29,6 @@ const Popular = () => {
     // revalidateOnReconnect: false, // personally, I didn't need this one
   });
 
-  console.log(data);
-
   // const { data } = useSelector((state) => state);
   // const [data,setData] = useState([])
 

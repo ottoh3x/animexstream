@@ -260,23 +260,22 @@ const DetailsContainer = ({ id, data, mal }) => {
                 <span
                   className={`text-gray-400 flex flex-row flex-wrap justify-start w-full items-center`}
                 >
-                  {console.log(data?.genre) ||
-                    genres?.map((Item, index) => (
-                      <Link
-                        href={`/genre/${Item.split(' ').join('-')}/1`}
-                        key={index}
-                      >
-                        <span className=" py-1 mr-2 cursor-pointer flex justify-center whitespace-nowrap items-center transform hover:scale-110 transition-transform duration-200">
-                          <AiFillPlayCircle
-                            size={13}
-                            style={{ margin: '0px 10px' }}
-                            className="text-blue-500"
-                          />
+                  {genres?.map((Item, index) => (
+                    <Link
+                      href={`/genre/${Item.split(' ').join('-')}/1`}
+                      key={index}
+                    >
+                      <span className=" py-1 mr-2 cursor-pointer flex justify-center whitespace-nowrap items-center transform hover:scale-110 transition-transform duration-200">
+                        <AiFillPlayCircle
+                          size={13}
+                          style={{ margin: '0px 10px' }}
+                          className="text-blue-500"
+                        />
 
-                          {Item}
-                        </span>
-                      </Link>
-                    ))}
+                        {Item}
+                      </span>
+                    </Link>
+                  ))}
                 </span>
               </div>
 

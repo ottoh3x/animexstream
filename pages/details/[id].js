@@ -47,22 +47,9 @@ const Details = () => {
       let DETAILURL = URL.DETAILS + id;
       let req = await axios.get(DETAILURL);
       let res = req.data;
-      console.log(res);
       setAnimeData(res);
     }
   };
-
-  // const fetchMal = async () => {
-  //   let url = `https://ottodb.vercel.app/api/anime/${id}`
-  //   let req = await axios.get(url)
-  //   let res = await req.data
-  //   setMal(res)
-  //   console.log(res)
-  //   setLoading(false)
-
-  // }
-
-  console.log(data);
 
   return (
     <div className="w-full justify-center items-center min-h-screen mx-auto lg:h-full mt-0 md:mt-[4rem] overflow-hidden">

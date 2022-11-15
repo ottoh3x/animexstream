@@ -180,12 +180,6 @@ export default function Home() {
     setOnGoingPopular(myList);
   };
 
-  // const recentlyFetch = async () => {
-  //   let res = await axios.get("https://ottogo.vercel.app/api/latest/1/");
-  //   setDataRecently(res.data.slice(0, 12));
-  //   console.log(dataRecently);
-  // };
-
   const PopularFetch = async () => {
     let res = await axios.get('https://ottodb.vercel.app/api/popular/1/');
     setDataPopular(res.data);

@@ -29,11 +29,8 @@ const Surprise = () => {
     let req = await fetch(url);
     let res = await req.json();
     setData(res);
-    console.log(res);
     setLoading(false);
   };
-
-  console.log(data);
 
   return (
     <div className="w-full justify-center items-center min-h-screen mx-auto lg:h-full mt-0 md:mt-[4rem] overflow-hidden">
