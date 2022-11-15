@@ -1,10 +1,10 @@
-import React from "react";
-import Layout from "../components/Layout";
-import { Emessage } from "./myList";
+import React from 'react';
+import Layout from '../components/Layout';
+import { Emessage } from './myList';
 
 const Error = () => {
   return (
-    <Layout title={"Error"}>
+    <Layout title={'Error'}>
       <Emessage />
     </Layout>
   );

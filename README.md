@@ -18,7 +18,6 @@ The official website is [animexstream.xyz](https://www.animexstream.xyz)
     <li>✔ PWA => You can install the app into your desktop or mobile.</li>
     <li>✔ Download Animes.</li>
  </ul>
-    
 
 
 <h3>Screenshots:</h3>
@@ -28,13 +27,14 @@ The official website is [animexstream.xyz](https://www.animexstream.xyz)
 ![image](https://i.imgur.com/ntC3wib.jpg)
 
 **<h3>Technologies:</h3>**
-    <ul>
-    <li>✔ NextJS</li>
-    <li>✔ TailwindCSS</li>
-    <li>✔ Redux</li>
-    <li>✔ PWA - Progressive Web App</li>
-    <li>✔ Swiper-JS</li>
-    <li>✔ Framer Motion</li>
+<ul>
+<li>✔ NextJS</li>
+<li>✔ TailwindCSS</li>
+<li>✔ Redux</li>
+<li>✔ PWA - Progressive Web App</li>
+<li>✔ Swiper-JS</li>
+<li>✔ Framer Motion</li>
+
  </ul>
  
  ### Support

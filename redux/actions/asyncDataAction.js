@@ -12,10 +12,8 @@ const recieveData = (payload) => {
 export const asyncDataAction = (URL) => {
   return async function getServerSideProps(dispatch) {
     dispatch(fetchData());
-    console.log(URL);
     const result = await axios.get(URL);
     dispatch(recieveData(result.data));
-    console.log(result.data.json_data);
     return {
       props: {
         data: result.data.json_data || result,

@@ -11,6 +11,8 @@
 # next.js
 /.next/
 /out/
+.swc
+
 
 # production
 /build
@@ -39,5 +41,8 @@ yarn-error.log*
 **/public/sw.js.map
 **/public/workbox-*.js.map 
 **/public/worker-*.js.map
+
+# lock files
+yarn.lock
 
 

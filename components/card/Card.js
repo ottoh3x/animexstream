@@ -1,19 +1,19 @@
-import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
-import Link from "next/link";
-import { AiOutlineExclamation } from "react-icons/ai";
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import CardModal from "./CardModal";
-import { ImPlay2 } from "react-icons/im";
+import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import Link from 'next/link';
+import { AiOutlineExclamation } from 'react-icons/ai';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import CardModal from './CardModal';
+import { ImPlay2 } from 'react-icons/im';
 import {
   addToMyList,
-  removeFromMyList,
-} from "../../redux/actions/myLIstDataAction";
-import { ToastContainer, toast, Flip } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { FaHeart } from "react-icons/fa";
-import { AnimatePresence } from "framer-motion";
+  removeFromMyList
+} from '../../redux/actions/myLIstDataAction';
+import { ToastContainer, toast, Flip } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { FaHeart } from 'react-icons/fa';
+import { AnimatePresence } from 'framer-motion';
 const MovieWrapper = styled.a`
   display: flex;
   flex-direction: column;
@@ -31,7 +31,7 @@ const MovieWrapper = styled.a`
     }
   }
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -123,7 +123,7 @@ const DetailsWrapper = styled.div`
 const PlayButton = styled.span`
   z-index: 9999;
   &::after {
-    content: "";
+    content: '';
     width: 60px;
     height: 60px;
     margin-top: -30px;
@@ -163,7 +163,7 @@ const Card = ({
   animeImg,
   animeTitle,
   animeId,
-  selected,
+  selected
 }) => {
   // const [selected, setSelected] = useState(false);
   const dispatch = useDispatch();
@@ -174,7 +174,7 @@ const Card = ({
   const theme = useSelector((state) => state.theme);
   useEffect(() => {
     const current = myList.filter((item) =>
-      id ? item.id == id : item.id == url,
+      id ? item.id == id : item.id == url
     );
     current.length > 0 ? setClick(true) : setClick(false);
   }, [click]);
@@ -190,8 +190,8 @@ const Card = ({
           id: url || id || animeId,
           image_url: image_url,
           title: title,
-          released: released?.replace("Released: ", "") || "",
-        }),
+          released: released?.replace('Released: ', '') || ''
+        })
       );
       setClick(true);
       toast.info(<Msg title={title} message="Was Added To Your List" />);
@@ -224,14 +224,14 @@ const Card = ({
           <Link
             href={
               episode
-                ? `/watching/${id.replace("/", "")}/${episode
-                    .replace("Episode", "")
-                    .replace(" ", "")}`
-                : heading === "My List" ||
-                  heading === "List" ||
-                  heading === "Recommended Animes" ||
-                  heading === "Recommended" ||
-                  heading === "Related"
+                ? `/watching/${id.replace('/', '')}/${episode
+                    .replace('Episode', '')
+                    .replace(' ', '')}`
+                : heading === 'My List' ||
+                  heading === 'List' ||
+                  heading === 'Recommended Animes' ||
+                  heading === 'Recommended' ||
+                  heading === 'Related'
                 ? `/details/${id || animeId}`
                 : `/details/${url}`
             }
@@ -246,21 +246,21 @@ const Card = ({
               <Link
                 href={
                   episode
-                    ? `/watching/${id.replace("/", "")}/${episode
-                        .replace("Episode", "")
-                        .replace(" ", "")}`
-                    : heading === "My List" ||
-                      heading === "List" ||
-                      heading === "Recommended Animes" ||
-                      heading === "Recommended" ||
-                      heading === "Related"
+                    ? `/watching/${id.replace('/', '')}/${episode
+                        .replace('Episode', '')
+                        .replace(' ', '')}`
+                    : heading === 'My List' ||
+                      heading === 'List' ||
+                      heading === 'Recommended Animes' ||
+                      heading === 'Recommended' ||
+                      heading === 'Related'
                     ? `/details/${id || animeId}`
                     : `/details/${url}`
                 }
               >
                 <div>
                   <Image
-                    src={image_url || animeImg || "/ss.png"}
+                    src={image_url || animeImg || '/ss.png'}
                     layout="fill"
                     objectFit="cover"
                     alt={title || animeTitle}
@@ -271,18 +271,17 @@ const Card = ({
             </div>
           </Link>
 
-          {heading === "Popular Ongoing" ||
-          heading === "Trending" ||
-          heading === "Popular" ||
-          heading === "Movies" ||
-          heading === "New Season" ||
-          heading === "Showing Results for" ||
-          heading === "Genres" ||
-          heading === "Related" ||
-          heading === "Recommended Animes" ||
-          heading === "My List" ||
-          heading === "List"
-          ? (
+          {heading === 'Popular Ongoing' ||
+          heading === 'Trending' ||
+          heading === 'Popular' ||
+          heading === 'Movies' ||
+          heading === 'New Season' ||
+          heading === 'Showing Results for' ||
+          heading === 'Genres' ||
+          heading === 'Related' ||
+          heading === 'Recommended Animes' ||
+          heading === 'My List' ||
+          heading === 'List' ? (
             <div className=" text-white bg-[#000000a3] absolute bottom-0 py-1 z-50 flex justify-between w-full px-1">
               {click ? (
                 <span
@@ -313,13 +312,13 @@ const Card = ({
           <Link
             href={
               episode
-                ? `/watching/${id.replace("/", "")}/${episode
-                    .replace("Episode", "")
-                    .replace(" ", "")}`
-                : heading === "My List" ||
-                  heading === "List" ||
-                  heading === "Recommended Animes" ||
-                  heading === "Recommended"
+                ? `/watching/${id.replace('/', '')}/${episode
+                    .replace('Episode', '')
+                    .replace(' ', '')}`
+                : heading === 'My List' ||
+                  heading === 'List' ||
+                  heading === 'Recommended Animes' ||
+                  heading === 'Recommended'
                 ? `/details/${id}`
                 : `/details/${url}`
             }
@@ -331,47 +330,47 @@ const Card = ({
               {title || animeTitle}
             </Title>
           </Link>
-          {heading == "Popular" ||
-          heading == "Trending" ||
-          heading == "New Season" ||
-          heading == "Genres" ||
-          heading == "Showing Results for" ||
-          heading == "Movies" ||
-          heading == "Recommended Animes" ||
-          heading == "Recommended" ? (
+          {heading == 'Popular' ||
+          heading == 'Trending' ||
+          heading == 'New Season' ||
+          heading == 'Genres' ||
+          heading == 'Showing Results for' ||
+          heading == 'Movies' ||
+          heading == 'Recommended Animes' ||
+          heading == 'Recommended' ? (
             <Episode className="text-[13px] md:text-md">
-              {heading == "Recommended Animes" || heading == "Recommended"
-                ? "Year: " + released
-                : released}{" "}
+              {heading == 'Recommended Animes' || heading == 'Recommended'
+                ? 'Year: ' + released
+                : released}{' '}
             </Episode>
           ) : (
-            ""
+            ''
           )}
-          {heading == "Recently Added" ||
-          heading == "Latest Dub Uploads" ||
-          heading == "Latest Sub Uploads" ? (
+          {heading == 'Recently Added' ||
+          heading == 'Latest Dub Uploads' ||
+          heading == 'Latest Sub Uploads' ? (
             <>
               <Episode>{episode}</Episode>
             </>
           ) : (
-            ""
+            ''
           )}
-          {heading == "Watch List" || heading == "Recently Watched" ? (
+          {heading == 'Watch List' || heading == 'Recently Watched' ? (
             <>
-              <Episode>{"Episode " + episode}</Episode>
+              <Episode>{'Episode ' + episode}</Episode>
             </>
           ) : (
-            ""
+            ''
           )}
-          {heading == "Popular Ongoing" ? (
+          {heading == 'Popular Ongoing' ? (
             <>
               <Episode>
-                {"Latest: "}
+                {'Latest: '}
                 <span className="text-gray-400">{latest}</span>
               </Episode>
             </>
           ) : (
-            ""
+            ''
           )}
         </DetailsWrapper>
       </MovieWrapper>

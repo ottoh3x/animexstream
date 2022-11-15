@@ -1,31 +1,31 @@
-import Link from "next/link";
-import { useSelector, useDispatch } from "react-redux";
-import { AiFillPlayCircle, AiFillStar, AiFillYoutube } from "react-icons/ai";
-import { FaHeart } from "react-icons/fa";
+import Link from 'next/link';
+import { useSelector, useDispatch } from 'react-redux';
+import { AiFillPlayCircle, AiFillStar, AiFillYoutube } from 'react-icons/ai';
+import { FaHeart } from 'react-icons/fa';
 
-import dynamic from "next/dynamic";
-const HomeContainer = dynamic(() => import("../card/HomeContainer"), {
-  ssr: false,
+import dynamic from 'next/dynamic';
+const HomeContainer = dynamic(() => import('../card/HomeContainer'), {
+  ssr: false
 });
-const EpisodeContainer = dynamic(() => import("./EpisodeContainer"));
-const Loader = dynamic(() => import("../Loader/Loader"));
-import Backdrop from "../BackDrop";
-import ReactPlayer from "react-player/lazy";
-import axios from "axios"
+const EpisodeContainer = dynamic(() => import('./EpisodeContainer'));
+const Loader = dynamic(() => import('../Loader/Loader'));
+import Backdrop from '../BackDrop';
+import ReactPlayer from 'react-player/lazy';
+import axios from 'axios';
 import {
   addToMyList,
-  removeFromMyList,
-} from "../../redux/actions/myLIstDataAction";
+  removeFromMyList
+} from '../../redux/actions/myLIstDataAction';
 
-import { useEffect, useState } from "react";
-import Lottie from "lottie-react";
-import Heart from "../../public/heart.json";
-import { ToastContainer, toast, Flip } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import Recommended from "../../pages/recommended";
-import Container from "../card/Container";
-import { FaPlay, FaYoutube } from "react-icons/fa";
-import { useRouter } from "next/router";
+import { useEffect, useState } from 'react';
+import Lottie from 'lottie-react';
+import Heart from '../../public/heart.json';
+import { ToastContainer, toast, Flip } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Recommended from '../../pages/recommended';
+import Container from '../card/Container';
+import { FaPlay, FaYoutube } from 'react-icons/fa';
+import { useRouter } from 'next/router';
 
 const Msg = ({ title, message }) => {
   return (
@@ -40,16 +40,15 @@ const Msg = ({ title, message }) => {
 };
 
 const split_title = (t) => {
-    let s = t.split("-")
-    if (s.length >= 2 ) {
-      let title = `${s[0]} ${s[1]}`
-      return title
-    }
-    else {
-        let title = s[0];
-        return title
-    }
+  let s = t.split('-');
+  if (s.length >= 2) {
+    let title = `${s[0]} ${s[1]}`;
+    return title;
+  } else {
+    let title = s[0];
+    return title;
   }
+};
 
 const DetailsContainer = ({ id, data, mal }) => {
   const [click, setClick] = useState(false);
@@ -57,7 +56,7 @@ const DetailsContainer = ({ id, data, mal }) => {
   const [showTrailer, setShowTrailer] = useState(false);
   const [notification, setNotification] = useState(false);
   const [randomData, setRandomData] = useState([]);
-  const [related,setRelated] = useState([])
+  const [related, setRelated] = useState([]);
   const [expand, setExpand] = useState(false);
   const router = useRouter();
   const dispatch = useDispatch();
@@ -67,30 +66,24 @@ const DetailsContainer = ({ id, data, mal }) => {
     current.length > 0 ? setClick(true) : setClick(false);
 
     return () => {
-      rel
-    }
+      rel;
+    };
   }, [id]);
 
- 
-
-
-  
-  
   const fetchRelated = async () => {
-   
-    let url = `https://ottodbapi.vercel.app/animix/search?keyw=${split_title(id) || split_title(data?.anime_id)}`
-    let req = await axios.get(url)
-    setRelated(req.data)
-
-    
-  }
+    let url = `https://ottodbapi.vercel.app/animix/search?keyw=${
+      split_title(id) || split_title(data?.anime_id)
+    }`;
+    let req = await axios.get(url);
+    setRelated(req.data);
+  };
 
   const handleClick = () => {
     if (click) {
       setClick(false);
       dispatch(removeFromMyList(id));
       toast.info(
-        <Msg title={data.title} message="Was Removed From Your List" />,
+        <Msg title={data.title} message="Was Removed From Your List" />
       );
     } else {
       dispatch(
@@ -98,31 +91,31 @@ const DetailsContainer = ({ id, data, mal }) => {
           id: id,
           image_url: data.image_url || mal?.image_url,
           title: data?.title || mal?.title,
-          released: data.year || mal?.aired?.prop?.from?.year,
-        }),
+          released: data.year || mal?.aired?.prop?.from?.year
+        })
       );
       setClick(true);
       toast.info(<Msg title={data.title} message="Was Added To Your List" />);
     }
   };
 
-  const genres = mal?.genres && mal?.genres.split(",");
+  const genres = mal?.genres && mal?.genres.split(',');
   return (
     <>
       <div className="overflow-hidden relative">
         <div className="h-[275px] overflow-hidden">
           <div
             style={{
-              backgroundSize: "cover",
+              backgroundSize: 'cover',
               backgroundImage: `url(${mal?.image_url || data?.image_url}) `,
-              height: "250px",
+              height: '250px',
 
-              filter: "brightness(0.5) blur(15px)",
-              backgroundPosition: "center 50%",
-              width: "100%",
-              height: "100%",
+              filter: 'brightness(0.5) blur(15px)',
+              backgroundPosition: 'center 50%',
+              width: '100%',
+              height: '100%',
 
-              transform: "scale(1.1)",
+              transform: 'scale(1.1)'
             }}
           />
         </div>
@@ -157,13 +150,16 @@ const DetailsContainer = ({ id, data, mal }) => {
               </div>
 
               <div className="p-2">
-              <div className="hidden lg:flex py-1 items-center ">
+                <div className="hidden lg:flex py-1 items-center ">
                   <span className="font-bold text-md ">Score:</span>
-                  <span className={`flex ${theme.text.notselected} items-center gap-[2px] mx-1`}>
-                   {mal?.score || "?"}<AiFillStar color="#ffd530e8" />
+                  <span
+                    className={`flex ${theme.text.notselected} items-center gap-[2px] mx-1`}
+                  >
+                    {mal?.score || '?'}
+                    <AiFillStar color="#ffd530e8" />
                   </span>
                 </div>
-              <div className="hidden lg:flex py-1 items-center ">
+                <div className="hidden lg:flex py-1 items-center ">
                   <span className="font-bold text-md ">Rank:</span>
                   <span className={`${theme.text.notselected} capitalize px-1`}>
                     {mal?.rank}
@@ -184,7 +180,7 @@ const DetailsContainer = ({ id, data, mal }) => {
                 <div className="hidden lg:flex py-1 items-center ">
                   <span className="font-bold text-md ">Rating:</span>
                   <span className={`${theme.text.notselected} capitalize px-1`}>
-                    {mal?.rating || "?"}
+                    {mal?.rating || '?'}
                   </span>
                 </div>
                 <div className="hidden lg:flex py-1 items-center ">
@@ -199,13 +195,13 @@ const DetailsContainer = ({ id, data, mal }) => {
                     {data?.status || mal?.status}
                   </span>
                 </div>
-                {mal?.airing === "true" && (
+                {mal?.airing === 'true' && (
                   <div className="hidden lg:flex py-1 items-center ">
                     <span className="font-bold text-md ">Broadcast:</span>
                     <span
                       className={`${theme.text.notselected} capitalize px-1`}
                     >
-                      {mal?.broadcast || "?"}
+                      {mal?.broadcast || '?'}
                     </span>
                   </div>
                 )}
@@ -223,13 +219,13 @@ const DetailsContainer = ({ id, data, mal }) => {
                 </div>
               </div>
               <div className="flex justify-between gap-1 p-2">
-                {data?.episodes === "0" ? (
-                  ""
+                {data?.episodes === '0' ? (
+                  ''
                 ) : (
                   <button
                     onClick={() =>
                       router.push(
-                        `/watching/${data?.anime_id || mal?.anime_id}/1`,
+                        `/watching/${data?.anime_id || mal?.anime_id}/1`
                       )
                     }
                     className="py-2 px-4 bg-[#111] text-gray-200 rounded-sm font-semibold flex  items-center justify-center gap-2  hover:bg-blue-800 hover:scale-105 transition-all ease-in-out"
@@ -239,14 +235,13 @@ const DetailsContainer = ({ id, data, mal }) => {
                   </button>
                 )}
                 {mal?.trailer_url && (
-
-                <button
-                  onClick={() => setShowTrailer(true)}
-                  className="py-2 px-4  bg-[#111] text-gray-200 rounded-sm font-semibold flex  items-center gap-2  hover:bg-blue-800  justify-center hover:scale-105 transition-all ease-in-out"
-                >
-                  <FaYoutube size={18} />
-                  <span className="mx-auto">Trailer</span>
-                </button>
+                  <button
+                    onClick={() => setShowTrailer(true)}
+                    className="py-2 px-4  bg-[#111] text-gray-200 rounded-sm font-semibold flex  items-center gap-2  hover:bg-blue-800  justify-center hover:scale-105 transition-all ease-in-out"
+                  >
+                    <FaYoutube size={18} />
+                    <span className="mx-auto">Trailer</span>
+                  </button>
                 )}
               </div>
             </div>
@@ -258,30 +253,29 @@ const DetailsContainer = ({ id, data, mal }) => {
                 <span
                   className={`text-white  capitalize w-30 text-base font-bold text-end`}
                 >
-                  {data?.type?.replaceAll("-", " ")}
+                  {data?.type?.replaceAll('-', ' ')}
                 </span>
               </div>
               <div className="py-2 w-10/12">
                 <span
                   className={`text-gray-400 flex flex-row flex-wrap justify-start w-full items-center`}
                 >
-                  {console.log(data?.genre) ||
-                    genres?.map((Item, index) => (
-                      <Link
-                        href={`/genre/${Item.split(" ").join("-")}/1`}
-                        key={index}
-                      >
-                        <span className=" py-1 mr-2 cursor-pointer flex justify-center whitespace-nowrap items-center transform hover:scale-110 transition-transform duration-200">
-                          <AiFillPlayCircle
-                            size={13}
-                            style={{ margin: "0px 10px" }}
-                            className="text-blue-500"
-                          />
+                  {genres?.map((Item, index) => (
+                    <Link
+                      href={`/genre/${Item.split(' ').join('-')}/1`}
+                      key={index}
+                    >
+                      <span className=" py-1 mr-2 cursor-pointer flex justify-center whitespace-nowrap items-center transform hover:scale-110 transition-transform duration-200">
+                        <AiFillPlayCircle
+                          size={13}
+                          style={{ margin: '0px 10px' }}
+                          className="text-blue-500"
+                        />
 
-                          {Item}
-                        </span>
-                      </Link>
-                    ))}
+                        {Item}
+                      </span>
+                    </Link>
+                  ))}
                 </span>
               </div>
 
@@ -318,7 +312,7 @@ const DetailsContainer = ({ id, data, mal }) => {
                 <div className="flex flex-col py-2 items-end">
                   <span className="text-xl font-bold">Episodes</span>
                   <span className={`${theme.text.notselected} capitalize`}>
-                    {data.episodes == "0" ? "NA" : data.episodes}
+                    {data.episodes == '0' ? 'NA' : data.episodes}
                   </span>
                 </div>
                 <div className="flex flex-col py-2">
@@ -345,8 +339,8 @@ const DetailsContainer = ({ id, data, mal }) => {
               <div className="flex flex-col py-2 lg:hidden">
                 <span className="text-xl font-bold">Episodes</span>
                 <span className="text-sm font-bold p-2">
-                  {data?.episodes || mal?.total_episodes == "0"
-                    ? "NA"
+                  {data?.episodes || mal?.total_episodes == '0'
+                    ? 'NA'
                     : data?.episodes || mal?.total_episodes}
                 </span>
               </div>
@@ -367,26 +361,15 @@ const DetailsContainer = ({ id, data, mal }) => {
           heading={"Recommended Animes"}
         /> */}
 
-
-
-          <div className="w-full lg:max-w-[80%] mx-auto mt-4">
+      <div className="w-full lg:max-w-[80%] mx-auto mt-4">
         <HomeContainer
-          Data={related?.filter(e => e.animeTitle !== mal?.title)}
-          heading={"Related"}
+          Data={related?.filter((e) => e.animeTitle !== mal?.title)}
+          heading={'Related'}
           Icon=""
           to={`recentlyWatched`}
           swiperId={2}
         />
-        </div>
-      
-
-
-        
-        
-
-        
-
-
+      </div>
 
       {showTrailer && (
         <Backdrop onClick={handleTrailer}>
@@ -397,8 +380,8 @@ const DetailsContainer = ({ id, data, mal }) => {
               height="100%"
               config={{
                 youtube: {
-                  playerVars: { modestbranding: 1 },
-                },
+                  playerVars: { modestbranding: 1 }
+                }
               }}
               playing
             />
@@ -406,7 +389,7 @@ const DetailsContainer = ({ id, data, mal }) => {
         </Backdrop>
       )}
       <ToastContainer
-        position={"top-center"}
+        position={'top-center'}
         autoClose={5000}
         transition={Flip}
         draggablePercent={30}
